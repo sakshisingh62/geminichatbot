@@ -1,0 +1,13 @@
+{
+  "name": "chatbot-fronted",
+  "version": "1.0.0",
+  "description": "Gemini AI Chatbot Frontend",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 5500",
+    "dev": "python3 -m http.server 5500"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
