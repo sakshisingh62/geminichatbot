@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sign in to your Nexus Learning workspace." />
+  <title>Sign in | Nexus Learning</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+  <section class="auth-showcase" aria-labelledby="auth-title">
+    <a href="index.html" class="auth-brand"><i class="fas fa-layer-group" aria-hidden="true"></i> Nexus Learning</a>
+    <div>
+      <span class="eyebrow" style="color:#bdece5;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);">Focused learning, beautifully organized</span>
+      <h1 id="auth-title">Your next breakthrough starts here.</h1>
+      <p>Bring your courses, progress, and AI support into one calm workspace built to help you learn with intent.</p>
+    </div>
+    <ul class="trust-points">
+      <li><i class="fas fa-circle-check" aria-hidden="true"></i> Keep every learning goal in view</li>
+      <li><i class="fas fa-circle-check" aria-hidden="true"></i> Get context-aware help when you need it</li>
+      <li><i class="fas fa-circle-check" aria-hidden="true"></i> Turn practice into measurable progress</li>
+    </ul>
+  </section>
+
+  <main class="auth-panel">
+    <section class="auth-card" aria-labelledby="form-title">
+      <h2 id="form-title">Welcome back</h2>
+      <p id="form-subtitle">Sign in to continue to your workspace.</p>
+      <div id="authAlert" class="auth-alert" role="status" aria-live="polite"></div>
+      <form id="authForm" class="auth-form">
+        <div class="form-group" id="nameGroup" hidden>
+          <label for="fullName">Full name</label>
+          <input id="fullName" name="name" type="text" autocomplete="name" placeholder="Alex Morgan" />
+        </div>
+        <div class="form-group"><label for="email">Work or school email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@university.edu" required /></div>
+        <div class="form-group"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" minlength="6" required /></div>
+        <button type="submit" class="btn"><span id="submitLabel">Sign in securely</span><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+      </form>
+      <p class="auth-switch"><span id="switchPrompt">New to Nexus Learning?</span> <button type="button" id="modeToggle">Create an account</button></p>
+      <p class="auth-note"><i class="fas fa-lock" aria-hidden="true"></i> Your workspace is private. This demo keeps the session on this device until you sign out.</p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

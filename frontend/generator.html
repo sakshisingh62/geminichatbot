@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Studio | Nexus Learning</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand"><i class="fas fa-layer-group"></i> Nexus Learning</a>
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fas fa-grid-2"></i> Workspace</a></li>
+      <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+      <li><a href="courses.html"><i class="fas fa-book-open"></i> Courses</a></li>
+      <li><a href="quiz.html"><i class="fas fa-circle-question"></i> Assessments</a></li>
+      <li><a href="generator.html" class="active"><i class="fas fa-wand-magic-sparkles"></i> AI Studio</a></li>
+      <li><a href="grades.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      <li><a href="feedback.html"><i class="fas fa-comment"></i> Feedback</a></li>
+      <li><a href="contact.html"><i class="fas fa-life-ring"></i> Support</a></li>
+    </ul>
+    <div class="nav-auth"><a href="auth.html" class="btn btn-secondary" data-auth-link>Sign in</a></div>
+  </nav>
+
+  <!-- AI Studio -->
+  <main class="main-wrapper">
+    <div class="page-card">
+      <header>
+        <h1><i class="fas fa-wand-magic-sparkles"></i> AI Studio</h1>
+        <p>Harness Google Gemini API and modern ES6+ JavaScript to fetch intelligent responses, summarize text, generate ideas, and find definitions.</p>
+      </header>
+
+      <!-- Grid of Generator Tools -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+        
+        <!-- Tool 1: Ask Me Anything -->
+        <article class="course-card">
+          <h3><i class="fas fa-question-circle" style="color: var(--primary);"></i> Ask Me Anything</h3>
+          <p>Type any academic or general question to query Gemini AI:</p>
+          <div class="form-group">
+            <input type="text" id="askInput" placeholder="e.g., Why do we use box-sizing: border-box?" />
+          </div>
+          <button class="btn" onclick="handleAskAnything()"><i class="fas fa-paper-plane"></i> Ask Gemini</button>
+          <div id="askResult" style="margin-top: 1rem; font-size: 0.95rem; background: #f8fafc; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); min-height: 60px;">Response will appear here...</div>
+        </article>
+
+        <!-- Tool 2: Quick Summarizer -->
+        <article class="course-card">
+          <h3><i class="fas fa-compress-alt" style="color: var(--primary);"></i> Quick Text Summarizer</h3>
+          <p>Paste long paragraphs to get a clean, concise bulleted summary:</p>
+          <div class="form-group">
+            <textarea id="summaryInput" rows="3" placeholder="Paste article or lecture notes here..."></textarea>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <button class="btn" onclick="handleSummarize()"><i class="fas fa-magic"></i> Summarize Text</button>
+            <button class="btn btn-secondary" id="copySummaryBtn" onclick="copySummaryToClipboard()" style="display: none;">
+              <i class="fas fa-copy"></i> Copy Summary
+            </button>
+          </div>
+          <div id="summaryResult" style="margin-top: 1rem; font-size: 0.95rem; background: #f8fafc; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); min-height: 60px;">Summary will appear here...</div>
+        </article>
+
+        <!-- Tool 3: Idea Spark -->
+        <article class="course-card">
+          <h3><i class="fas fa-lightbulb" style="color: var(--warning);"></i> Idea Spark</h3>
+          <p>Enter a topic to generate bulleted project or study ideas:</p>
+          <div class="form-group">
+            <input type="text" id="ideaTopic" placeholder="e.g., Final year Web Dev projects" />
+          </div>
+          <button class="btn" onclick="handleIdeaSpark()"><i class="fas fa-lightbulb"></i> Spark Ideas</button>
+          <div id="ideaResult" style="margin-top: 1rem; font-size: 0.95rem; background: #f8fafc; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); min-height: 60px;">Ideas will appear here...</div>
+        </article>
+
+        <!-- Tool 4: Definition Finder -->
+        <article class="course-card">
+          <h3><i class="fas fa-book" style="color: var(--success);"></i> Definition Finder</h3>
+          <p>Lookup plain English definitions with real-world analogies:</p>
+          <div class="form-group">
+            <input type="text" id="termInput" placeholder="e.g., JavaScript Closure" />
+          </div>
+          <button class="btn btn-accent" onclick="handleDefinitionFinder()"><i class="fas fa-search"></i> Define Term</button>
+          <div id="termResult" style="margin-top: 1rem; font-size: 0.95rem; background: #f8fafc; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); min-height: 60px;">Definition will appear here...</div>
+        </article>
+
+      </div>
+
+      <!-- Mini Tool Section: Tech Joke Generator -->
+      <section style="margin-top: 2.5rem; background: #f8fafc; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+        <h3><i class="fas fa-laugh-beam" style="color: #f59e0b;"></i> Mini Tool: AI Programming Joke</h3>
+        <p>Click to fetch a short programmer joke using ES6 Promises & fetch():</p>
+        <button class="btn btn-secondary" onclick="handleRandomJoke()" style="margin-top: 0.5rem;"><i class="fas fa-smile"></i> Tell Me a Joke</button>
+        <div id="jokeResult" style="margin-top: 1rem; font-size: 1.05rem; font-weight: 500; color: var(--primary);"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Nexus Learning. A focused learning workspace for modern students.</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="generator.js"></script>
+</body>
+</html>

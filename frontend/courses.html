@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses | Nexus Learning</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand"><i class="fas fa-layer-group"></i> Nexus Learning</a>
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fas fa-grid-2"></i> Workspace</a></li>
+      <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+      <li><a href="courses.html" class="active"><i class="fas fa-book-open"></i> Courses</a></li>
+      <li><a href="quiz.html"><i class="fas fa-circle-question"></i> Assessments</a></li>
+      <li><a href="generator.html"><i class="fas fa-wand-magic-sparkles"></i> AI Studio</a></li>
+      <li><a href="grades.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      <li><a href="feedback.html"><i class="fas fa-comment"></i> Feedback</a></li>
+      <li><a href="contact.html"><i class="fas fa-life-ring"></i> Support</a></li>
+    </ul>
+    <div class="nav-auth"><a href="auth.html" class="btn btn-secondary" data-auth-link>Sign in</a></div>
+  </nav>
+
+  <!-- Courses Main Content (CSS Grid / Flexbox Showcase) -->
+  <main class="main-wrapper">
+    <div class="page-card">
+      <header>
+        <h1><i class="fas fa-book-open"></i> Enrolled Courses</h1>
+        <p>Explore your current subjects, syllabus breakdown, and ask Gemini AI for tutoring help.</p>
+      </header>
+
+      <!-- Courses Grid Container -->
+      <div class="courses-grid">
+        
+        <article class="course-card">
+          <div>
+            <span class="course-badge">CS-101 &bull; Core</span>
+            <h3>Web Development Fundamentals</h3>
+            <p>Learn semantic HTML5 markup, responsive CSS layout systems (Flexbox & Grid), and modern web accessibility guidelines.</p>
+            <ul style="padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+              <li>Module 1: Semantic HTML Structure</li>
+              <li>Module 2: CSS Box Model & Media Queries</li>
+              <li>Module 3: Responsive Layouts</li>
+            </ul>
+          </div>
+          <button class="btn btn-secondary" onclick="askCourseAI('Web Development Fundamentals HTML & CSS')">
+            <i class="fas fa-robot"></i> Ask AI Tutor
+          </button>
+        </article>
+
+        <article class="course-card">
+          <div>
+            <span class="course-badge">CS-202 &bull; Advanced</span>
+            <h3>Modern ES6+ JavaScript & APIs</h3>
+            <p>Master asynchronous JavaScript, Promises, fetch API, Arrow Functions, Destructuring, and Array methods (map, filter, reduce).</p>
+            <ul style="padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+              <li>Module 1: ES6 Syntax & Scope</li>
+              <li>Module 2: Async/Await & Fetch API</li>
+              <li>Module 3: Functional Data Methods</li>
+            </ul>
+          </div>
+          <button class="btn btn-secondary" onclick="askCourseAI('Modern ES6 JavaScript Promises and Fetch API')">
+            <i class="fas fa-robot"></i> Ask AI Tutor
+          </button>
+        </article>
+
+        <article class="course-card">
+          <div>
+            <span class="course-badge">AI-301 &bull; Specialized</span>
+            <h3>Applied Generative AI & Gemini API</h3>
+            <p>Integrate Google Gemini models for multimodal text and image understanding, prompt engineering, and structured output handling.</p>
+            <ul style="padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+              <li>Module 1: Gemini 2.5 API Endpoints</li>
+              <li>Module 2: Prompt Optimization</li>
+              <li>Module 3: Full-Stack AI Integration</li>
+            </ul>
+          </div>
+          <button class="btn btn-secondary" onclick="askCourseAI('Applied Generative AI and Google Gemini API')">
+            <i class="fas fa-robot"></i> Ask AI Tutor
+          </button>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Nexus Learning. A focused learning workspace for modern students.</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function askCourseAI(courseName) {
+      const chatWindow = document.getElementById('chatWindow');
+      if (chatWindow) chatWindow.style.display = 'flex';
+      const input = document.getElementById('chatInput');
+      if (input) {
+        input.value = `Can you explain the main concepts and study tips for ${courseName}?`;
+        sendWidgetMessage();
+      }
+    }
+  </script>
+</body>
+</html>

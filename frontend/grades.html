@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progress | Nexus Learning</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand"><i class="fas fa-layer-group"></i> Nexus Learning</a>
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fas fa-grid-2"></i> Workspace</a></li>
+      <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+      <li><a href="courses.html"><i class="fas fa-book-open"></i> Courses</a></li>
+      <li><a href="quiz.html"><i class="fas fa-circle-question"></i> Assessments</a></li>
+      <li><a href="generator.html"><i class="fas fa-wand-magic-sparkles"></i> AI Studio</a></li>
+      <li><a href="grades.html" class="active"><i class="fas fa-chart-line"></i> Progress</a></li>
+      <li><a href="feedback.html"><i class="fas fa-comment"></i> Feedback</a></li>
+      <li><a href="contact.html"><i class="fas fa-life-ring"></i> Support</a></li>
+    </ul>
+    <div class="nav-auth"><a href="auth.html" class="btn btn-secondary" data-auth-link>Sign in</a></div>
+  </nav>
+
+  <!-- Grades Main Content (Semantic Table) -->
+  <main class="main-wrapper">
+    <div class="page-card">
+      <header>
+        <h1><i class="fas fa-chart-bar"></i> Academic Grades & Performance</h1>
+        <p>A structured tabular summary of course credits, letter grades, scores, and status.</p>
+      </header>
+
+      <div class="table-container">
+        <table>
+          <caption>Semester 5 Academic Transcript</caption>
+          <thead>
+            <tr>
+              <th scope="col">Course Code</th>
+              <th scope="col">Course Title</th>
+              <th scope="col">Credits</th>
+              <th scope="col">Score (%)</th>
+              <th scope="col">Grade</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CS-101</td>
+              <td>Web Development Fundamentals</td>
+              <td>4</td>
+              <td>94%</td>
+              <td><strong>A+</strong></td>
+              <td><span style="color: var(--success); font-weight: 600;">Completed</span></td>
+            </tr>
+            <tr>
+              <td>CS-202</td>
+              <td>Modern ES6+ JavaScript & APIs</td>
+              <td>4</td>
+              <td>89%</td>
+              <td><strong>A</strong></td>
+              <td><span style="color: var(--success); font-weight: 600;">Completed</span></td>
+            </tr>
+            <tr>
+              <td>AI-301</td>
+              <td>Applied Generative AI & Gemini API</td>
+              <td>3</td>
+              <td>92%</td>
+              <td><strong>A+</strong></td>
+              <td><span style="color: var(--success); font-weight: 600;">Completed</span></td>
+            </tr>
+            <tr>
+              <td>DS-105</td>
+              <td>Data Structures & Algorithms</td>
+              <td>4</td>
+              <td>85%</td>
+              <td><strong>B+</strong></td>
+              <td><span style="color: var(--success); font-weight: 600;">Completed</span></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2"><strong>Cumulative GPA / Total Credits</strong></td>
+              <td><strong>15</strong></td>
+              <td colspan="2"><strong>3.88 / 4.0 GPA</strong></td>
+              <td><span style="color: var(--primary); font-weight: 700;">Dean's List</span></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div style="margin-top: 2rem; text-align: right;">
+        <button class="btn" onclick="askGradesAI()">
+          <i class="fas fa-robot"></i> Ask AI to Analyze My Grades
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Nexus Learning. A focused learning workspace for modern students.</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function askGradesAI() {
+      const chatWindow = document.getElementById('chatWindow');
+      if (chatWindow) chatWindow.style.display = 'flex';
+      const input = document.getElementById('chatInput');
+      if (input) {
+        input.value = "My GPA is 3.88 with A+ in Web Dev and Generative AI, and B+ in Data Structures. What tips do you recommend to improve Data Structures?";
+        sendWidgetMessage();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,62 +1,24 @@
-# Chatbot Backend
+# Nexus Learning backend
 
-Backend server for Gemini AI Chatbot using Node.js and Google Generative AI.
+The backend serves the static learning workspace and provides the AI assistant and feedback APIs.
 
-## Features
-- Google Gemini 2.5 Pro AI integration
-- RESTful API endpoints
-- CORS enabled for cross-origin requests
-- Environment variable configuration
+## Start
 
-## Setup
-
-1. Clone the repository:
-```bash
-git clone https://github.com/sakshisingh62/chatbot-backend.git
-cd chatbot-backend
-```
-
-2. Install dependencies:
 ```bash
 npm install
-```
-
-3. Create a `.env` file in the root directory:
-```
-GEMINI_API_KEY=your_api_key_here
-```
-Get your API key from: https://aistudio.google.com/app/apikey
-
-4. Start the server:
-```bash
 node server.js
 ```
 
-The server will run on port 5004 (or set custom port with `PORT` environment variable).
+The default address is `http://localhost:5004`.
 
-## API Endpoints
+## Environment
 
-### POST /ask
-Send a question to the Gemini AI.
-
-**Request:**
-```json
-{
-  "question": "Your question here"
-}
+```env
+GEMINI_API_KEY=your_google_gemini_api_key_here
+PORT=5004
+MONGODB_URI=mongodb://127.0.0.1:27017/student_hub_db
 ```
 
-**Response:**
-```json
-{
-  "answer": "AI generated answer"
-}
-```
+`POST /ask` sends a question to the configured Gemini model. Feedback is available through `GET /api/feedback`, `POST /api/feedback`, and `DELETE /api/feedback/:id`. When MongoDB is unavailable, local development uses an in-memory fallback.
 
-## Technologies Used
-- Node.js
-- Google Generative AI SDK
-- dotenv for environment variables
-
-## License
-MIT
+The browser account screen is intentionally a demo session. Add a real identity provider and server-side session validation before using the portal with production accounts.

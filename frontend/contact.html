@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support | Nexus Learning</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand"><i class="fas fa-layer-group"></i> Nexus Learning</a>
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fas fa-grid-2"></i> Workspace</a></li>
+      <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+      <li><a href="courses.html"><i class="fas fa-book-open"></i> Courses</a></li>
+      <li><a href="quiz.html"><i class="fas fa-circle-question"></i> Assessments</a></li>
+      <li><a href="generator.html"><i class="fas fa-wand-magic-sparkles"></i> AI Studio</a></li>
+      <li><a href="grades.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      <li><a href="feedback.html"><i class="fas fa-comment"></i> Feedback</a></li>
+      <li><a href="contact.html" class="active"><i class="fas fa-life-ring"></i> Support</a></li>
+    </ul>
+    <div class="nav-auth"><a href="auth.html" class="btn btn-secondary" data-auth-link>Sign in</a></div>
+  </nav>
+
+  <!-- Contact Us Main Content -->
+  <main class="main-wrapper">
+    <div class="page-card">
+      <header>
+        <h1><i class="fas fa-envelope"></i> Contact Us</h1>
+        <p>Get in touch with student support, faculty advisors, or tech help.</p>
+      </header>
+
+      <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+        
+        <article class="course-card">
+          <h3><i class="fas fa-headset" style="color: var(--primary);"></i> Student Helpdesk</h3>
+          <p>For course enrollment, grade inquiries, and academic assistance:</p>
+          <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:support@studenthub.edu" style="color: var(--primary);">support@studenthub.edu</a></p>
+          <p><i class="fas fa-phone"></i> <strong>Phone:</strong> <a href="tel:+18005550199" style="color: var(--primary);">+1 (800) 555-0199</a></p>
+        </article>
+
+        <article class="course-card">
+          <h3><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Campus Address</h3>
+          <p>Physical campus location and office hours:</p>
+          <address style="font-style: normal; line-height: 1.8; color: var(--text-muted);">
+            <strong>Student Hub Academic Building</strong><br />
+            500 Innovation Way, Suite 300<br />
+            Silicon Valley, CA 94025<br />
+            United States
+          </address>
+        </article>
+
+        <article class="course-card">
+          <h3><i class="fas fa-robot" style="color: var(--success);"></i> 24/7 AI Assistance</h3>
+          <p>Need instant help? Click the floating Gemini AI Assistant icon at the bottom right corner of any page to ask questions instantly!</p>
+          <button class="btn btn-accent" onclick="toggleChatbot()" style="margin-top: 1rem;">
+            <i class="fas fa-comments"></i> Open AI Assistant
+          </button>
+        </article>
+
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Nexus Learning. A focused learning workspace for modern students.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
